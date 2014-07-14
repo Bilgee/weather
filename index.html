@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Weather Forecast</title>
+        <link rel="stylesheet" href="css/genericons.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
+        
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+        
+    <body>
+
+        <header>
+            <h1>Coming Soon</h1>
+            
+        </header>
+        <div id="clock">
+            <p class="today"></p>
+        </div>
+        <h2>Weather Forecast</h2>
+        <div id="weather">
+            <p class="location"><span class="genericon genericon-location"></span></p>
+            <br/>
+            <ul id="weatherList">
+                <!-- The forecast items will go here -->
+            </ul>
+
+        </div>
+        <footer>
+            <a href="http://merlinthered.deviantart.com/art/plain-weather-icons-157162192">Weather Icons by MerlinTheRed</a>
+        </footer>
+        
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/moment.min.js"></script>
+        <script src="js/openWeather.js"></script>
+        <script>
+            $(document).ready( function(){
+                var datetime = $('#clock > p.today');
+                    date = moment(new Date());
+                    update = function(){
+                        date = moment(new Date());
+                        datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+                    };
+                update();
+                setInterval(update, 1000);
+            });
+        </script>
+    </body>
+</html>
